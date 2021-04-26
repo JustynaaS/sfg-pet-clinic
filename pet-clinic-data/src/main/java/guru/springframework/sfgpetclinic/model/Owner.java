@@ -3,13 +3,14 @@ package guru.springframework.sfgpetclinic.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
+
+import static javax.persistence.CascadeType.ALL;
 
 @Getter
 @Setter
@@ -25,7 +26,7 @@ private String city;
 @Column(name = "telephone")
 private String telephone;
 
-@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+@OneToMany(cascade = ALL, mappedBy = "owner")
 private Set<Pet> pets = new HashSet<>();
 
 }
