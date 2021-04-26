@@ -7,8 +7,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+import static javax.persistence.CascadeType.ALL;
 
 @Getter
 @Setter
@@ -28,4 +33,7 @@ private Owner owner;
 
 @Column(name = "birth_date")
 private LocalDate birthDate;
+
+@OneToMany(cascade = ALL, mappedBy = "pet")
+private Set<Visit> visits = new HashSet<>();
 }
