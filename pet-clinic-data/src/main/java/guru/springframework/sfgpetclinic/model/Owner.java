@@ -17,8 +17,6 @@ import static javax.persistence.CascadeType.ALL;
 @Getter
 @Setter
 @NoArgsConstructor
-
-@Builder
 @Entity
 @Table(name = "owners")
 public class Owner extends Person {
@@ -29,7 +27,10 @@ public Owner(Long id, String firstName, String lastName, String address, String 
     this.address = address;
     this.city = city;
     this.telephone = telephone;
-    this.pets = pets;
+
+    if(pets != null) {
+        this.pets = pets;
+    }
 }
 
 @Column(name = "address")
