@@ -56,7 +56,7 @@ void saveExistingId() {
     Owner owner = Owner.builder().id(id).build();
     Owner savedOwner = ownerMapService.save(owner);
 
-    assertEquals(id, owner.getId());
+    assertEquals(id, savedOwner.getId());
 }
 
 @Test
