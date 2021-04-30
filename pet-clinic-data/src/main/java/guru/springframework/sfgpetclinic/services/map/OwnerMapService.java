@@ -68,6 +68,10 @@ public Owner findById(Long id) {
 
 @Override
 public Owner findByLastName(String lastName) {
-    return null;
+    return this.findAll()
+               .stream()
+               .filter(owner -> owner.getLastName().equals(lastName))
+               .findFirst()
+               .orElse(null);
 }
 }
